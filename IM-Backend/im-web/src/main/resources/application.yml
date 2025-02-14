@@ -1,0 +1,56 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+  servlet:
+    context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
+
+spring:
+  application:
+    name: springboot3.4.x-init
+  # 默认 dev 环境
+  profiles:
+    active: dev
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/im?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: ${DB_PASSWORD}
+
+
+  # redis 配置
+  data:
+    redis:
+      # 地址
+      host: localhost
+      # 端口，默认为6379
+      port: 6379
+      # 数据库索引
+      database: 0
+      # 密码
+      password:
+      # 连接超时时间
+      timeout: 10s
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: is_deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs  # 配置 OpenAPI 文档的路径
+  swagger-ui:
+    path: /swagger-ui.html  # 配置 Swagger UI 的路径
+    enabled: true  # 启用 Swagger UI
+
+
