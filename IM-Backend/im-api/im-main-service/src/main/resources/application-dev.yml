@@ -21,3 +21,8 @@ spring:
       password:
       # 连接超时时间
       timeout: 10s
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.92.81.114:8848

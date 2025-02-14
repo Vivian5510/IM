@@ -1,2 +1,12 @@
 server:
   port: 8001
+
+spring:
+
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_IP}
+
