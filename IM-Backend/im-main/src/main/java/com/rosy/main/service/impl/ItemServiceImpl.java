@@ -11,7 +11,6 @@ import com.rosy.main.domain.entity.Item;
 import com.rosy.main.domain.vo.ItemVO;
 import com.rosy.main.mapper.ItemMapper;
 import com.rosy.main.service.IItemService;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -23,7 +22,7 @@ import java.util.Optional;
  * @author Rosy
  * @since 2025-01-19
  */
-@Service
+//@Service
 public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements IItemService {
     @Override
     public ItemVO getItemVO(Item item) {

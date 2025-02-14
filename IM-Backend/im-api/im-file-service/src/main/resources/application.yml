@@ -1,0 +1,25 @@
+server:
+  address: 0.0.0.0
+  tomcat:
+    uri-encoding: UTF-8
+    max-swallow-size: -1  # 不限制请求体大小
+  servlet:
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
+
+# 日志级别
+logging:
+  level:
+    root: info
+
+spring:
+  application:
+    name: im-file-service
+  # 默认 dev 环境
+  profiles:
+    active: dev
+
+
+
