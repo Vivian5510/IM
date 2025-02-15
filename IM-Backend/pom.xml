@@ -20,6 +20,7 @@
         <module>im-web</module>
         <module>im-main</module>
         <module>im-api</module>
+        <module>im-gateway</module>
     </modules>
 
     <properties>

@@ -1,0 +1,31 @@
+server:
+  port: 8000
+
+spring:
+
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_IP:localhost:8848}
+    gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        # 指定匹配所有路由（所有请求路径）的跨域配置
+        corsConfigurations:
+          '[/**]':
+            # 允许的请求来源，可以根据需要调整为具体的地址或使用 "*" 表示所有来源
+            allowedOrigins: "http://localhost:5173"
+            # 允许携带凭证（如 Cookies）
+            allowCredentials: true
+            # 允许的请求头
+            allowedHeaders: "*"
+            # 允许的 HTTP 请求方法
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+

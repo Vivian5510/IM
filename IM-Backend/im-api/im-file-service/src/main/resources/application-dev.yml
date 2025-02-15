@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
 
 spring:
 
@@ -8,5 +8,5 @@ spring:
       enabled: false
     nacos:
       discovery:
-        server-addr: ${NACOS_SERVER_IP}
+        server-addr: ${NACOS_SERVER_IP:localhost:8848}
 
