@@ -10,6 +10,7 @@ spring:
       discovery:
         server-addr: ${NACOS_SERVER_IP:localhost:8848}
     gateway:
+      # 全局跨域配置
       globalcors:
         add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
         # 指定匹配所有路由（所有请求路径）的跨域配置
@@ -28,4 +29,24 @@ spring:
               - PUT
               - DELETE
               - OPTIONS
+      # 动态路由配置
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: auth-service-route
+          uri: lb://im-auth-service
+          predicates:
+            - Path=/auth/**
+
+        - id: main-service-route
+          uri: lb://im-main-service
+          predicates:
+            - Path=/main/**
+
+        - id: file-service-route
+          uri: lb://im-file-service
+          predicates:
+            - Path=/file/**
 

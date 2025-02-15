@@ -23,6 +23,8 @@ spring:
       timeout: 10s
 
   cloud:
+    compatibility-verifier:
+      enabled: false
     nacos:
       discovery:
         server-addr: ${NACOS_SERVER_IP:localhost:8848}
